@@ -4,8 +4,8 @@ osp_servers:
   frontend:
     name: frontend
     state: present
-    image: rhel-guest
-    key_name: ansible_ssh
+    image: rhel-server-7.7-update-2
+    key_name: gitopsuserkey
     flavor: m1.small
     security_group: frontend
     meta:
@@ -13,7 +13,7 @@ osp_servers:
   app1:
     name: app1
     state: present
-    image: hel-server-7.7-update-2
+    image: rhel-server-7.7-update-2
     key_name: ansible_ssh
     flavor: m1.small
     security_group: apps
@@ -22,8 +22,8 @@ osp_servers:
   app2:
     name: app2
     state: present
-    image: hel-server-7.7-update-2
-    key_name: ansible_ssh
+    image: rhel-server-7.7-update-2
+    key_name: gitopsuserkey
     flavor: m1.small
     security_group: apps
     meta:
@@ -31,8 +31,8 @@ osp_servers:
   db:
     name: db
     state: present
-    image: hel-server-7.7-update-2
-    key_name: ansible_ssh
+    image: rhel-server-7.7-update-2
+    key_name: gitopsuserkey
     flavor: m1.small
     security_group: db
     meta:
