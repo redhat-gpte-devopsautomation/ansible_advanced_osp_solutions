@@ -3,7 +3,7 @@
 # tasks file for osp.servers
 - name: Create new server instances and attaches them a network and passes metadata to the instance
   os_server:
-    cloud: gitops01-project
+#    cloud: gitops01-project
     name: "{{ item.0.name }}"
     image: "{{ item.0.image }}"
     key_name: "{{ item.0.key_name }}"
