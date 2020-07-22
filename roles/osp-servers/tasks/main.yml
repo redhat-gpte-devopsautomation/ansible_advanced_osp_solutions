@@ -12,12 +12,12 @@
     delete_fip: yes
     wait: no
     nics:
-      - net-name: int_network
+      - net-name: gitops01-default-network
     meta: "{{ item.1 }}"
-    userdata: |
-      #!/bin/bash
-      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
-      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+    # userdata: |
+    #   #!/bin/bash
+    #   curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+    #   cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
   with_subelements:
     - "{{osp_servers}}"
     - meta
@@ -25,25 +25,25 @@
   - test.servers
 
 
-- name: Add floating IP to Servers
-  os_floating_ip:
-    cloud: openstack
-    state: present
-    reuse: yes
-    server: "{{ item.value.name }}"
-    network: ext_network
-    wait: true
-    timeout: 200
-  with_dict: "{{osp_servers}}"
-  tags:
-  - test.servers
+# - name: Add floating IP to Servers
+#   os_floating_ip:
+#     cloud: openstack
+#     state: present
+#     reuse: yes
+#     server: "{{ item.value.name }}"
+#     network: ext_network
+#     wait: true
+#     timeout: 200
+#   with_dict: "{{osp_servers}}"
+#   tags:
+#   - test.servers
    
-- name: OpenStack servers
-  os_server_facts:
-    cloud: openstack
-  register: result
-  tags:
-    - test.servers
+# - name: OpenStack servers
+#   os_server_facts:
+#     cloud: openstack
+#   register: result
+#   tags:
+#     - test.servers
 
 # - name: Print records  
 #   debug:
