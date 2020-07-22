@@ -14,7 +14,7 @@ osp_servers:
     name: app1
     state: present
     image: rhel-server-7.7-update-2
-    key_name: ansible_ssh
+    key_name: gitopsuserkey
     flavor: m1.small
     security_group: apps
     meta:
