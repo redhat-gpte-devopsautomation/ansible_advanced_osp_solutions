@@ -16,7 +16,7 @@ osp_servers:
     image: rhel-server-7.7-update-2
     key_name: gitopsuserkey
     flavor: m1.small
-    security_group: apps
+    security_group: gitops01-DefaultSG
     meta:
       - { group: apps, deployment_name: QA}
   app2:
